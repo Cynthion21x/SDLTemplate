@@ -4,4 +4,12 @@ sdl2_dep = dependency('sdl2')
 sdl2_image_dep = dependency('SDL2_image')
 sdl2_mixer_dep = dependency('SDL2_mixer')
 
-executable('SDL Template', 'src/main.cc', dependencies : [sdl2_image_dep, sdl2_mixer_dep, sdl2_dep])
+incdir = include_directories('include')
+
+src = [
+    
+    'src/main.cc',
+    'src/core/core.cc'
+]
+
+executable('SDLTemplate', src, dependencies : [sdl2_image_dep, sdl2_mixer_dep, sdl2_dep], include_directories : incdir)
